@@ -4,7 +4,33 @@
         name: "HeaderComponent",
         components:{
             Socials,
-        }
+        },
+        data(){
+            return{
+                navArray:[
+                    {
+                        name: 'home',
+                        link: '#'
+                    },
+                    {
+                        name: 'about',
+                        link: '#'
+                    },
+                    {
+                        name: 'services',
+                        link: '#'
+                    },
+                    {
+                        name: 'training',
+                        link: '#'
+                    },
+                    {
+                        name: 'blogs',
+                        link: '#'
+                    },
+                ]
+            }
+        },
     }
 </script>
 
@@ -41,6 +67,27 @@
                 </div>
             </div>
         </div>
+        <div id="bottomHeaderBg">
+            <div id="bottomHeaderItems" class="w-50 m-auto text-light py-3 d-flex justify-content-between align-items-center">
+                <img src="../assets/img/logo.png" alt="siteLogo">
+                <div class="d-flex align-items-center gap-4">
+                    <nav>
+                        <ul class="d-flex gap-3 m-0">
+                            <li class="text-black" v-for="(element) in navArray">
+                                <a :href="element.link">
+                                    <span>{{ element.name }}</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                    <a href="#" class="primaryButton">
+                        <span>
+                            get in touch!
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </div>
     </header>
 
   
@@ -56,10 +103,24 @@
 
 
 <style lang="scss" scoped>
+    @import '../scss/styles.scss';
     #topHeaderBg{
         background-color: #7F7045;
     }
 
+    li{
+        list-style-type: none;
+        a{
+            text-decoration: none;
+            color: #847F82;
+            text-transform: capitalize;
+            font-weight: 600;
+            font-size: 20px;
+            &:hover{
+                color: $primaryColor;
+            }
+        }
+    }
 
 
 
