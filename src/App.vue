@@ -1,9 +1,9 @@
 <script>
-  import nome from './components/blankComponent.vue'
+  import HeaderComponent from './components/HeaderComponent.vue'
 
   export default{
     components: {
-      nome,
+      HeaderComponent,
     }
   }
 </script>
@@ -14,7 +14,7 @@
 
 <template>
 
-  <nome/>
+  <HeaderComponent/>
 
 </template>
 
