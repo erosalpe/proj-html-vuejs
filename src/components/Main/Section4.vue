@@ -14,7 +14,7 @@
   
     <div class="d-flex">
         <img src="../../assets/img/why.png" alt="why-img" class="w-50">
-        <div class="d-flex flex-column pt-5 ps-5 gap-2">
+        <div class="d-flex flex-column pt-5 ps-5 gap-2 w-50">
             <div class="d-flex align-items-center gap-3 pawTitle">
                 <img src="../../assets/img/dog-icon.png" alt="dog-paw" class="pawImage">
                 <span class="fs-7">Choose Us</span>
@@ -85,17 +85,17 @@
         width: 7%;
     }
     .whyUsImg{
-        width: 20%;
+        width: 25%;
     }
 
     .whyUsP{
         &:nth-child(3){
-            padding-left: 200px;
+            padding-left: 150px;
         }
         &:nth-child(4){
-            padding-left: 400px;
+            padding-left: 300px;
             .whyUsImg{
-                width: 25%;
+                width: 110px;
             }
         }
     }
