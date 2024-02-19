@@ -1,9 +1,12 @@
 <script>
 import Section1 from './Main/Section1.vue'
+import Section2 from './Main/Section2.vue'
+
     export default {
         name: "MainComponent",
         components:{
             Section1,
+            Section2,
         }
     }
 </script>
@@ -15,6 +18,7 @@ import Section1 from './Main/Section1.vue'
 
 <template>
     <Section1/>
+    <Section2/>
 
   
 
