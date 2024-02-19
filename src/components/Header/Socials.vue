@@ -42,12 +42,11 @@
 
 
 <style lang="scss" scoped>
-    
+    @import '../../scss/styles.scss';
     .socialButton{
-        padding: 2px;
-        padding-inline: 4.5px;
-        background-color: #3240A2;
-        border-radius: 4px;
+        &:nth-child(1){
+            background-color: #3240A2;
+        }
         &:nth-child(2){
             padding-inline: 6px;
             background-color: #bc2d48;
