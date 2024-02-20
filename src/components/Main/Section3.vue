@@ -131,6 +131,9 @@
             padding: 1rem;
             gap: 0.8rem;
             color: white;
+            &:hover{
+                background-color: #7f7045;
+            }
             img{
                 width: 40%;
                 margin-bottom: 1rem;
@@ -141,11 +144,6 @@
                 border-radius: 100px;
                 padding-block: 15px;
                 padding-inline: 20px;
-            }
-            .cardButton{
-                &:hover{
-                    filter: brightness(110%);
-                }
             }
         }
     }
