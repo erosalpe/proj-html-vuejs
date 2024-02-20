@@ -11,14 +11,14 @@
 
 
 <template>
-    <div class="container containerCustom m-auto pt-5">
+    <div class="container containerCustom m-auto pt-5" id="reviewBody">
         <div class="row">
             <div class="col-4">
                 <div class="d-flex align-items-center gap-3 pawTitle">
                     <img src="../../assets/img/dog-icon.png" alt="dog-paw" class="pawImage">
                     <span class="fs-7">Review & Rating</span>
                  </div>
-                <h2 class="fs-3 py-4">
+                <h2 class="fs-3 py-4 w-75">
                     Over 8000 Customers With 5-Star Review
                 </h2>
                 <p>
@@ -109,6 +109,9 @@
 
 <style lang="scss" scoped>
     @import '../../scss/styles.scss';
+    #reviewBody{
+        padding-bottom: 100px;
+    }
     .pawTitle{
         img{
             width: 9%;

@@ -111,9 +111,6 @@
     li{
         list-style-type: none;
         a{
-            text-decoration: none;
-            color: #847F82;
-            text-transform: capitalize;
             font-weight: 600;
             font-size: 20px;
             &:hover{
