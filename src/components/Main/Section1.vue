@@ -12,7 +12,7 @@
 
 <template>
     <div id="section1Bg">
-        <div id="infoBlock1" class="w-50 m-auto d-flex flex-column justify-content-center text-light h-100 gap-4">
+        <div id="infoBlock1" class="containerCustom m-auto d-flex flex-column justify-content-center text-light h-100 gap-4">
             <h1>
                 Welcome to <span>DogMilo</span> Pets
             </h1>

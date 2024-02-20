@@ -43,7 +43,7 @@
   
     <header>
         <div id="topHeaderBg">
-            <div id="topHeaderItems" class="w-50 m-auto text-light d-flex justify-content-between py-3">
+            <div id="topHeaderItems" class="containerCustom m-auto text-light d-flex justify-content-between py-3">
                 <div id="topHeaderLeft" class="d-flex gap-5">
                     <div id="emailInfo" class="d-flex align-items-center gap-2">
                         <svg width="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
@@ -68,7 +68,7 @@
             </div>
         </div>
         <div id="bottomHeaderBg">
-            <div id="bottomHeaderItems" class="w-50 m-auto text-light py-3 d-flex justify-content-between align-items-center">
+            <div id="bottomHeaderItems" class="containerCustom m-auto text-light py-3 d-flex justify-content-between align-items-center">
                 <img src="../assets/img/logo.png" alt="siteLogo">
                 <div class="d-flex align-items-center gap-4">
                     <nav>

@@ -13,10 +13,10 @@
 <template>
   
     <div id="section3Bg" class="py-5">
-        <div class="w-50 m-auto text-center">
+        <div class="containerCustom m-auto text-center">
             <h5>Service</h5>
             <h2 class="m-auto">DogMilo Pet Care Services For Your Best Friends.</h2>
-            <div class="d-flex gap-4 pt-5">
+            <div class="d-flex gap-5 pt-5">
                 <!--Card 1-->
                 <div class="dogCard">
                     <img src="../../assets/img/d-1.png" alt="pet-sitting">
@@ -121,7 +121,7 @@
         .dogCard{
             display: flex;
             flex-direction: column;
-            --gap: 1.5rem;
+            --gap: 3rem;
     		--columns: 5;
     		flex-basis: calc((100% / var(--columns)) - var(--gap) + (var(--gap) / var(--columns)));
             align-items: center;
@@ -129,17 +129,23 @@
             background-color: $primaryColor;
             border-radius: 100px;
             padding: 1rem;
+            gap: 0.8rem;
             color: white;
             img{
-                width: 50%;
+                width: 40%;
                 margin-bottom: 1rem;
             }
             svg{
-                width: 40%;
+                width: 30%;
                 background-color: #ffcc00;
                 border-radius: 100px;
                 padding-block: 15px;
                 padding-inline: 20px;
+            }
+            .cardButton{
+                &:hover{
+                    filter: brightness(110%);
+                }
             }
         }
     }

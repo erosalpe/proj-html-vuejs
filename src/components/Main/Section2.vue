@@ -12,7 +12,7 @@
 
 <template>
     <div id="section2Bg" class="position-relative">
-        <div class="w-50 m-auto d-flex gap-5 py-5">
+        <div class="containerCustom m-auto d-flex gap-5 py-5">
             <img src="../../assets/img/about.png" alt="about-img" id="aboutImg">
             <div>
                 <div class="d-flex flex-column justify-content-center h-100 gap-3">
@@ -54,6 +54,7 @@
 
 
 <style lang="scss" scoped>
+    @import '../../scss/styles.scss';
     #section2Bg>img{
         top: 3rem;
         right: 0;

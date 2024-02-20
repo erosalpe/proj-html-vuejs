@@ -74,6 +74,7 @@
 
 
 <style lang="scss" scoped>
+    @import '../../scss/styles.scss';
     
     .pawTitle{
         span{
