@@ -13,6 +13,8 @@
 <template>
   
     <div id="section3Bg" class="py-5">
+        <img src="../../assets/img/dog-left.png" alt="dog-img" id="dogLeftLogo">
+        <img src="../../assets/img/dog-logo.png" alt="dog-img" id="dogRLogo">
         <div class="containerCustom m-auto text-center">
             <h5>Service</h5>
             <h2 class="m-auto">DogMilo Pet Care Services For Your Best Friends.</h2>
@@ -114,7 +116,17 @@
 <style lang="scss" scoped>
     @import '../../scss/styles.scss';
     #section3Bg{
+        position: relative;
         background-color: #f5f5f5;
+        #dogLeftLogo{
+            position: absolute;
+            width: 10%;
+        }
+        #dogRLogo{
+            position: absolute;
+            right: 0;
+            width: 12%;
+        }
         h2{
             width: 45%;
         }

@@ -1,6 +1,7 @@
 
 <script>
-import Socials from './Header/Socials.vue'
+    import Socials from './Header/Socials.vue'
+    import { store } from '../store'
     export default {
         name: "FooterComponent",
         components:{
@@ -73,9 +74,26 @@ import Socials from './Header/Socials.vue'
                         name: 'return',
                         link: '#'
                     },
-                ]
+                ],
+                store,
             }
         },
+        methods:{
+            addEmail(mail){
+                if(store.userEmail && store.userEmail.trim() && store.userEmail.includes('@')){
+                    store.usersEmailsArray.push(mail)
+                    store.userEmail = ''
+                } else {
+                    
+                    store.emailPopup = true
+                    console.log("email sbagliata", store.emailPopup)
+                    setTimeout(()=>{
+                        store.emailPopup = false
+                    }, 5000)
+                    console.log("email sbagliata", store.emailPopup)
+                }
+            }
+        }
     }
 </script>
 
@@ -97,11 +115,21 @@ import Socials from './Header/Socials.vue'
                         <h2 class="pb-2 text-light">
                             Subscribe to Our Newsletter
                         </h2>
-                        <div class="p-0">
-                            <input type="email" name="userEmail" id="newsletterEmail" placeholder="Your Email Here" class="w-100">
-                            <span>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="40px" viewBox="0 0 512 512"><path fill="#ffffff" d="M256 64C150 64 64 150 64 256s86 192 192 192c17.7 0 32 14.3 32 32s-14.3 32-32 32C114.6 512 0 397.4 0 256S114.6 0 256 0S512 114.6 512 256v32c0 53-43 96-96 96c-29.3 0-55.6-13.2-73.2-33.9C320 371.1 289.5 384 256 384c-70.7 0-128-57.3-128-128s57.3-128 128-128c27.9 0 53.7 8.9 74.7 24.1c5.7-5 13.1-8.1 21.3-8.1c17.7 0 32 14.3 32 32v80 32c0 17.7 14.3 32 32 32s32-14.3 32-32V256c0-106-86-192-192-192zm64 192a64 64 0 1 0 -128 0 64 64 0 1 0 128 0z"/></svg>
-                            </span>
+                        <div class="p-0" id="emailField">
+                            <input type="text" name="userEmail" id="newsletterEmail" placeholder="Your Email Here" class="w-100" v-model="store.userEmail" @keyup.enter="addEmail(store.userEmail)">
+                            <a @click=" addEmail(store.userEmail)">
+                                <span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="40px" viewBox="0 0 512 512"><path fill="#ffffff" d="M256 64C150 64 64 150 64 256s86 192 192 192c17.7 0 32 14.3 32 32s-14.3 32-32 32C114.6 512 0 397.4 0 256S114.6 0 256 0S512 114.6 512 256v32c0 53-43 96-96 96c-29.3 0-55.6-13.2-73.2-33.9C320 371.1 289.5 384 256 384c-70.7 0-128-57.3-128-128s57.3-128 128-128c27.9 0 53.7 8.9 74.7 24.1c5.7-5 13.1-8.1 21.3-8.1c17.7 0 32 14.3 32 32v80 32c0 17.7 14.3 32 32 32s32-14.3 32-32V256c0-106-86-192-192-192zm64 192a64 64 0 1 0 -128 0 64 64 0 1 0 128 0z"/></svg>
+                                </span>
+                            </a>
+                            <Transition>
+                                <div class="p-1 m-0" id="emailPopup" v-if="store.emailPopup">
+                                    <svg width="16px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 630">
+                                        <path fill="#ffbb00" d="M256 32c14.2 0 27.3 7.5 34.5 19.8l216 368c7.3 12.4 7.3 27.7 .2 40.1S486.3 480 472 480H40c-14.3 0-27.6-7.7-34.7-20.1s-7-27.8 .2-40.1l216-368C228.7 39.5 241.8 32 256 32zm0 128c-13.3 0-24 10.7-24 24V296c0 13.3 10.7 24 24 24s24-10.7 24-24V184c0-13.3-10.7-24-24-24zm32 224a32 32 0 1 0 -64 0 32 32 0 1 0 64 0z"/>
+                                    </svg>
+                                    L'indirizzo mail deve rispettare il seguente formato:<br>info@example.com
+                                </div>
+                            </Transition>
                         </div>
                     </div>
                 </div>
@@ -234,6 +262,15 @@ import Socials from './Header/Socials.vue'
         #floatingNews{
             margin-top: -325px;
             padding-bottom: 3rem;
+            #emailField{
+                position: relative;
+                #emailPopup{
+                    position: absolute;
+                    background-color: #f4f4f4;
+                    top: 107%;
+                    border-radius: 10px;
+                }
+            }
         }
     
         #newsLetter{
@@ -256,6 +293,10 @@ import Socials from './Header/Socials.vue'
                         top: 5px;
                         background-color: $primaryColor;
                         padding: 3px;
+                        cursor: pointer;
+                        &:hover{
+                            background-color: #7f7045;
+                        }
                     }
                 }
             }
@@ -266,6 +307,16 @@ import Socials from './Header/Socials.vue'
                 left: 20px;
             }
         }
+    }
+
+    .v-enter-active,
+    .v-leave-active {
+        transition: opacity 1s ease;
+    }
+
+    .v-enter-from,
+    .v-leave-to {
+        opacity: 0;
     }
 
 

@@ -12,7 +12,7 @@
 
 <template>
   
-    <div class="d-flex">
+    <div class="d-flex" id="section4Bg">
         <img src="../../assets/img/why.png" alt="why-img" class="w-50">
         <div class="d-flex flex-column pt-5 ps-5 gap-2 w-50">
             <div class="d-flex align-items-center gap-3 pawTitle">

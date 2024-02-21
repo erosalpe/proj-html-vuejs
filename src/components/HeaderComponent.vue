@@ -10,23 +10,23 @@
                 navArray:[
                     {
                         name: 'home',
-                        link: '#'
+                        link: '#section1Bg'
                     },
                     {
                         name: 'about',
-                        link: '#'
+                        link: '#section2Bg'
                     },
                     {
                         name: 'services',
-                        link: '#'
+                        link: '#section3Bg'
                     },
                     {
                         name: 'training',
-                        link: '#'
+                        link: '#section4Bg'
                     },
                     {
                         name: 'blogs',
-                        link: '#'
+                        link: '#reviewBody'
                     },
                 ]
             }
@@ -69,7 +69,9 @@
         </div>
         <div id="bottomHeaderBg">
             <div id="bottomHeaderItems" class="containerCustom m-auto text-light py-3 d-flex justify-content-between align-items-center">
-                <img src="../assets/img/logo.png" alt="siteLogo">
+                <a href="#">
+                    <img src="../assets/img/logo.png" alt="siteLogo">
+                </a>
                 <div class="d-flex align-items-center gap-4">
                     <nav>
                         <ul class="d-flex gap-3 m-0">
