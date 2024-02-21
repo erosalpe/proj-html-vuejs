@@ -1,7 +1,102 @@
 
 <script>
     export default {
-        name: "Section5"
+        name: "Section5",
+        data(){
+            return{
+                reviewArray: [
+                    {   
+                        id: 0,
+                        stars: 1,
+                        title: 'Great Place',
+                        description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry s standard dummy text ever since the 1500s, when',
+                        profilePic: './src/assets/img/t1.png',
+                        name: 'Tobias May',
+                        job: 'UI/UX Designer',
+                        active: true,
+                    },
+                    {
+                        id: 1,
+                        stars: 2,
+                        title: 'Great Place',
+                        description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry s standard dummy text ever since the 1500s, when',
+                        profilePic: './src/assets/img/t1.png',
+                        name: 'Tobias May',
+                        job: 'UI/UX Designer',
+                        active: true,
+                    },
+                    {
+                        id: 2,
+                        stars: 3,
+                        title: 'Great Place',
+                        description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry s standard dummy text ever since the 1500s, when',
+                        profilePic: './src/assets/img/t1.png',
+                        name: 'Tobias May',
+                        job: 'UI/UX Designer',
+                        active: false,
+                    },
+                    {
+                        id: 3,
+                        stars: 4,
+                        title: 'Great Place',
+                        description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry s standard dummy text ever since the 1500s, when',
+                        profilePic: './src/assets/img/t1.png',
+                        name: 'Tobias May',
+                        job: 'UI/UX Designer',
+                        active: false,
+                    },
+                    {
+                        id: 3,
+                        stars: 5,
+                        title: 'Great Place',
+                        description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry s standard dummy text ever since the 1500s, when',
+                        profilePic: './src/assets/img/t1.png',
+                        name: 'Tobias May',
+                        job: 'UI/UX Designer',
+                        active: false,
+                    },
+                ],
+                firstId: 0,
+                secondId: 1,
+            }
+           
+        },
+        methods:{
+            nextRev(){
+                if(this.secondId > this.reviewArray.length -2){
+                    this.reviewArray.forEach(element => {
+                        element.active = false
+                    });
+                    this.firstId = 0
+                    this.secondId = 1
+                    this.reviewArray[this.firstId].active = true
+                    this.reviewArray[this.secondId].active = true
+                } else {
+                    this.reviewArray[this.firstId].active = false
+                    this.firstId++;
+                    this.secondId++;
+                    this.reviewArray[this.secondId].active = true
+                }
+            },
+            prevRev(){
+                if(this.firstId === 0){
+                    this.reviewArray.forEach(element => {
+                        element.active = false
+                    });
+                    this.firstId = this.reviewArray.length - 2
+                    this.secondId = this.reviewArray.length - 1
+                    this.reviewArray[this.firstId].active = true
+                    this.reviewArray[this.secondId].active = true
+                } else {
+                    this.reviewArray[this.secondId].active = false
+                    this.reviewArray[this.firstId].active = false
+                    this.secondId--;
+                    this.firstId--;
+                    this.reviewArray[this.secondId].active = true
+                    this.reviewArray[this.firstId].active = true
+                }
+            }
+        }
     }
 </script>
 
@@ -31,53 +126,26 @@
                 </span>
             </div>
             <div class="col-8">
-                <div class="w-100 h-100 d-flex gap-4" id="carosello">
-                    <div class="caroselloCard d-flex flex-column p-3">
+                <div class="w-100 h-100 d-flex gap-4 overflow-hidden" id="carosello">
+                    <div class="caroselloCard d-flex flex-column p-3" v-for="element in reviewArray" :class="{'d-none' : !element.active}">
                         <span class="d-block">
-                            &#11088;&#11088;&#11088;&#11088;&#11088;
+                            <span v-for="index in element.stars">
+                                &#11088;
+                            </span>
                         </span>
-                        <h4 class="py-2">Great Place</h4>
+                        <h4 class="py-2">{{ element.title }}</h4>
                         <p>
-                            Lorem Ipsum is simply dummy text of the
-                            printing and typesetting industry. Lorem
-                            Ipsum has been the industry's standard
-                            dummy text ever since the 1500s, when
+                            {{ element.description}}
                         </p>
                         <div class="d-flex align-items-end gap-2 h-100">
                             <div class="d-flex align-items-center gap-2">
-                                <img src="../../assets/img/t1.png" alt="profile-pic">
+                                <img :src="element.profilePic" alt="profile-pic">
                                 <div class="d-flex flex-column gap-3">
                                     <span class="fw-bold">
-                                        Tobias May
+                                        {{ element.name }}
                                     </span>
                                     <span class="revJob">
-                                        UI/UX Designer
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="caroselloCard d-flex flex-column p-3">
-                        <span class="d-block">
-                            &#11088;&#11088;&#11088;&#11088;&#11088;
-                        </span>
-                        <h4 class="py-2">Great Place</h4>
-                        <p>
-                            Lorem Ipsum is simply dummy text of the
-                            printing and typesetting industry. Lorem
-                            Ipsum has been the industry's standard
-                            dummy text ever since the 1500s, when
-                        </p>
-                        <div class="d-flex align-items-end gap-2 h-100">
-                            <div class="d-flex align-items-center gap-2">
-                                <img src="../../assets/img/t1.png" alt="profile-pic">
-                                <div class="d-flex flex-column gap-3">
-                                    <span class="fw-bold">
-                                        Tobias May
-                                    </span>
-                                    <span class="revJob">
-                                        UI/UX Designer
+                                        {{ element.job }}
                                     </span>
                                 </div>
                             </div>
@@ -85,9 +153,9 @@
                     </div>
                 </div>
                 <div class="d-flex gap-3 justify-content-end pt-3">
-                    <svg id="arrowL" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="#FFFFFF" d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l192 192c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256 246.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192z"/></svg>
+                    <svg @click="prevRev()" id="arrowL" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="#FFFFFF" d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l192 192c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256 246.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192z"/></svg>
                 
-                    <svg id="arrowR" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="#FFFFFF" d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"/></svg>
+                    <svg @click="nextRev()" id="arrowR" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="#FFFFFF" d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"/></svg>
                 </div>
             </div>
         </div>
@@ -143,5 +211,9 @@
         &:hover{
             background-color: #7f7045;
         }
+    }
+
+    .active{
+        display: block;
     }
 </style>
